@@ -1,0 +1,17 @@
+package edu.course.lab03;
+
+public class PercentDiscount implements DiscountPolicy {
+    private final int percent;
+
+    public PercentDiscount(int percent) {
+        if (percent < 0 || percent > 100) {
+            throw new IllegalArgumentException("Процент должен быть от 0 до 100");
+        }
+        this.percent = percent;
+    }
+
+    @Override
+    public double apply(double price) {
+        return price * (1.0 - (percent / 100.0));
+    }
+}
